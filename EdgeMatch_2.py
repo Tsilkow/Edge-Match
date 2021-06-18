@@ -21,7 +21,7 @@ def getInput(tiles):
          tiles.append(input().split(" "))
          for j in range(len(tiles[-1])): tiles[-1][j] = int(tiles[-1][j])
 
-# obrót kafelka r-razy o 90 stopni, zgodnie ze wskazówkami zegara
+# obraca kafelek r-razy o 90 stopni, zgodnie ze wskazówkami zegara
 def rotateTile(t, r):
     return [t[-r], t[1-r], t[2-r], t[3-r]]
 
@@ -117,7 +117,7 @@ def solve():
     
     lp.solve()
     dict = lp.get_values(grid)
-    result = [[-1 for x in range(N)] for y in range(N)] # pairs of [n, s], where n is index of tile and s is rotation
+    result = [[-1 for x in range(N)] for y in range(N)]
     
     for a in dict:
         if dict[a] == 1: result[a[1]][a[0]] = a[2]
